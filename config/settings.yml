@@ -25,5 +25,5 @@ ip-from-header: "_env:IP_FROM_HEADER:false"
 # mutable-static: false
 # skip-combining: false
 
-copyright: Insert copyright statement here
+copyright: Haskell online judge Since 2018
 #analytics: UA-YOURCODE

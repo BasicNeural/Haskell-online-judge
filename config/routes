@@ -9,3 +9,7 @@
 / HomeR GET POST
 
 /comments CommentR POST
+
+/execise ExeciseIndexR GET
+
+/execise/#Int ExeciseR GET

@@ -15,6 +15,7 @@ import Yesod.Default.Util          (addStaticContentExternal)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import qualified Data.Text as T
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -94,6 +95,11 @@ instance Yesod App where
                     { menuItemLabel = "Home"
                     , menuItemRoute = HomeR
                     , menuItemAccessCallback = True
+                    },
+                NavbarLeft $ MenuItem
+                    { menuItemLabel = "Execise"
+                    , menuItemRoute = ExeciseIndexR
+                    , menuItemAccessCallback = True
                     }
                 ]
 
@@ -151,6 +157,8 @@ instance Yesod App where
 -- Define breadcrumbs.
 instance YesodBreadcrumbs App where
   breadcrumb HomeR = return ("Home", Nothing)
+  breadcrumb (ExeciseR indexId) = return ("Execise " ++ T.pack (show indexId) ++ ".", Nothing)
+  breadcrumb ExeciseIndexR = return ("Index", Nothing)
   breadcrumb  _ = return ("home", Nothing)
 
 -- This instance is required to use forms. You can modify renderMessage to
